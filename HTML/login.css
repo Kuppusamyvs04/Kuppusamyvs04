@@ -1,0 +1,245 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container {
+    width: 80%;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-color: yellow;
+    color: #fff;
+    padding:  0;
+    box-shadow: 0 4px 6px rgba(39, 194, 241, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px; /* Increased height */
+    width: auto;   /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the logo image circular */
+   
+}
+
+.logo h1 {
+    margin: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ecf0f1;
+}
+
+/* Section Styles */
+.section {
+    padding: 2rem 0;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(218, 89, 89, 0.1);
+}
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+}
+.hero img {
+    width: 50%;
+    border-radius: 8px;
+    margin-right: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    justify-content: space-between;
+
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+}
+
+.hero-text .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #374a57;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hero-text .btn:hover {
+    background-color: #34db74;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px; /* Increased height */
+    width: auto;   /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the logo image circular */
+   
+}
+
+.logo h1 {
+    margin: 50px;
+}
+/* Login Section */
+.section {
+    padding: 2rem 0;
+}
+
+/* Arrow Button */
+.arrow-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #374a57;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.arrow-btn:hover {
+    color: #34db74;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.login-form input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-form .btn {
+    padding: 0.75rem;
+    background-color: #374a57;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form .btn:hover {
+    background-color: #34db74;
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+footer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:yellow;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-section {
+    flex: 1 1 calc(50% - 1rem);
+}
+
+.footer-section h3 {
+    margin-top: 0;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+   
+   
+    padding-top: 1rem;
+}
