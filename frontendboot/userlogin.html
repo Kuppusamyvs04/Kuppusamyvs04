@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: url('./Images/bgif.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .userlogin-header {
+            background-color: #810000; /* Header color */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 80px; /* Example header height */
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+        }
+
+        footer {
+            background-color: #810000; /* Footer color */
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        .footer-container {
+            padding: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="userlogin-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                <h1 style="color: black; font-weight: bolder;">V K's LIBRARY</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="temp.html" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="nav-item"><a href="#books" class="nav-link text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                    <li class="nav-item"><a href="search.html" class="nav-link btn btn-warning text-dark"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="notificationContainer" class="alert-container">
+        <!-- Notification will be added here -->
+    </div>
+
+    <div class="container mt-5 pt-5">
+        <div class="d-flex justify-content-between mb-3">
+            <a href="temp.html" class="btn btn-dark"><i class="fas fa-arrow-left"></i> Back</a>
+        </div>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="login-container bg-white p-4 rounded shadow" style="width: 100%; max-width: 400px;">
+                <h2 class="text-center mb-4 text-dark">Login</h2>
+                <form id="login-form" method="post" novalidate onsubmit="return validateForm();">
+                    <div class="form-group">
+                        <label for="username"><i class="fas fa-user"></i> Username</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                        <div id="usernameError" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Password</label>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                                    <i id="eyeIcon" class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="passwordError" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role"><i class="fas fa-user-tag"></i> Role</label>
+                        <select id="role" name="role" class="form-control" required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="user">User</option>
+                            <option value="librarian">Librarian</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <div id="roleError" class="text-danger"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-block"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <div class="text-center mt-3">
+                        <a href="forgot.html" class="text-dark"><i class="fas fa-unlock-alt"></i> Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Clear previous errors
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('roleError').textContent = '';
+
+            // Role validation
+            const role = document.getElementById('role').value;
+            if (!role) {
+                document.getElementById('roleError').textContent = 'Please select a role.';
+                isValid = false;
+            }
+
+            // Username validation
+            const username = document.getElementById('username').value;
+            if (username.length < 3) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 3 characters long.';
+                isValid = false;
+            }
+
+            // Password validation
+            const password = document.getElementById('password').value;
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password) || !/[!@#$%^&*]/.test(password)) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long and include an uppercase letter, a number, and a special character.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Show success notification
+                showNotification('Login successfully.', 'success');
+                
+                // Delay redirection to allow notification to be seen
+                setTimeout(() => {
+                    switch(role) {
+                        case 'user':
+                            window.location.href = 'userdashboard.html';
+                            break;
+                        case 'librarian':
+                            window.location.href = 'librariandashboard.html';
+                            break;
+                        case 'admin':
+                            window.location.href = 'admindashboard.html';
+                            break;
+                        default:
+                            // Handle unexpected roles
+                            window.location.href = 'index.html'; // Fallback
+                    }
+                }, 2000); // 2 seconds delay for the notification to be visible
+            }
+
+            return false; // Prevent actual form submission for demo purposes
+        }
+
+        function showNotification(message, type) {
+            const notificationContainer = document.getElementById('notificationContainer');
+            const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+
+            // Create the alert element
+            const alertElement = document.createElement('div');
+            alertElement.className = `alert ${alertClass} alert-dismissible fade show`;
+            alertElement.role = 'alert';
+            alertElement.innerHTML = `
+                ${message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            `;
+
+            // Append the alert element to the notification container
+            notificationContainer.innerHTML = ''; // Clear previous notifications
+            notificationContainer.appendChild(alertElement);
+
+            // Automatically hide the alert after 5 seconds
+            setTimeout(() => {
+                $(alertElement).alert('close');
+            }, 5000);
+        }
+
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
+    </script>
+
+<footer class="text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#home" class="text-white"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about" class="text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#books" class="text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                    <li><a href="#search" class="text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                    <li><a href="userlogin.html" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="search.html" class="text-white"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=Library%20Location&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> Email: info@library.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <p class="text-center mb-0 footer-text">&copy; 2023 V K's Library. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

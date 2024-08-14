@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 100px; /* Space for the fixed header */
+        }
+        .back-button {
+            background-color: #dc3545; /* Different color for the back button */
+            color: white;
+            margin-bottom: 20px;
+        }
+        .sidebar-header {
+            margin-bottom: 20px;
+        }
+        .fixed-header {
+            background-color: #810000;
+            font-weight: bolder;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header py-3" style="font-weight: bolder;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                <h1 class="mb-0">V K's LIBRARY</h1>
+            </div>
+            <h2 class="mb-0">Librarian Dashboard</h2>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 bg-dark text-white p-4">
+                <a href="userlogin.html" class="btn back-button w-100"><i class="fas fa-arrow-left"></i> Back</a>
+                <div class="text-center sidebar-header">
+                    <img src="./Images/librarian.png" alt="Librarian" class="img-fluid rounded-circle" width="100">
+                    <h2 class="mt-2">Librarian Profile</h2>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="#book-management"><i class="fas fa-book"></i> Book Management</a>
+                    <a class="nav-link text-white" href="#user-assistance"><i class="fas fa-users"></i> User Assistance</a>
+                    <a class="nav-link text-white" href="#fine-management"><i class="fas fa-cash-register"></i> Fine Management</a>
+                </nav>
+                <button class="btn btn-danger mt-4 w-100" onclick="window.location.href='temp.html'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </aside>
+
+            <main class="col-md-9">
+                <section id="book-management" class="my-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>Book Management</h2>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addBookModal"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>The Great Gatsby</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>Fiction</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#viewBookModal"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateBookModal"><i class="fas fa-edit"></i> Update</button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteBookModal"><i class="fas fa-trash"></i> Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- User Assistance Section -->
+                <section id="user-assistance" class="my-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>User Assistance</h2>
+                        <button class="btn btn-primary" onclick="window.location.href='register-user.html'"><i class="fas fa-user-plus"></i> Register User</button>
+                    </div>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Jane Doe</td>
+                                <td>janedoe@example.com</td>
+                                <td>Member</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#viewUserModal"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateUserModal"><i class="fas fa-edit"></i> Update</button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal"><i class="fas fa-trash"></i> Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="fine-management" class="my-4">
+                    <h2>Fine Management</h2>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#calculateFineModal"><i class="fas fa-calculator"></i> Calculate Fine</button>
+                    </div>
+
+                    <h3>Outstanding Fines</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Amount Due</th>
+                                <th>Status</th> <!-- Status Column -->
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fineTableBody">
+                            <tr>
+                                <td>1</td>
+                                <td>Mark Smith</td>
+                                <td>$10.00</td>
+                                <td>Unpaid</td> <!-- Example Status -->
+                                <td>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#viewFineModal"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#manageFineModal"><i class="fas fa-edit"></i> Manage</button>
+                                </td>
+                            </tr>
+                            <!-- Additional rows will be added here dynamically -->
+                        </tbody>
+                    </table>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button class="btn btn-info" data-toggle="modal" data-target="#addFineModal"><i class="fas fa-wallet"></i> Add Fine</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- Modals -->
+
+    <!-- View Book Modal -->
+    <div class="modal fade" id="viewBookModal" tabindex="-1" role="dialog" aria-labelledby="viewBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewBookModalLabel">View Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Book details go here -->
+                    <p><strong>Title:</strong> The Great Gatsby</p>
+                    <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+                    <p><strong>Genre:</strong> Fiction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Book Modal -->
+    <div class="modal fade" id="updateBookModal" tabindex="-1" role="dialog" aria-labelledby="updateBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateBookModalLabel">Update Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Book update form goes here -->
+                    <form>
+                        <div class="form-group">
+                            <label for="bookTitle">Title</label>
+                            <input type="text" class="form-control" id="bookTitle" value="The Great Gatsby">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookAuthor">Author</label>
+                            <input type="text" class="form-control" id="bookAuthor" value="F. Scott Fitzgerald">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookGenre">Genre</label>
+                            <input type="text" class="form-control" id="bookGenre" value="Fiction">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Book Modal -->
+    <div class="modal fade" id="deleteBookModal" tabindex="-1" role="dialog" aria-labelledby="deleteBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteBookModalLabel">Delete Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Confirmation message -->
+                    <p>Are you sure you want to delete <strong>The Great Gatsby</strong>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View User Modal -->
+    <div class="modal fade" id="viewUserModal" tabindex="-1" role="dialog" aria-labelledby="viewUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewUserModalLabel">View User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- User details go here -->
+                    <p><strong>Name:</strong> Jane Doe</p>
+                    <p><strong>Email:</strong> janedoe@example.com</p>
+                    <p><strong>Role:</strong> Member</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update User Modal -->
+    <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="updateUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateUserModalLabel">Update User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- User update form goes here -->
+                    <form>
+                        <div class="form-group">
+                            <label for="userName">Name</label>
+                            <input type="text" class="form-control" id="userName" value="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" class="form-control" id="userEmail" value="janedoe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">Role</label>
+                            <select class="form-control" id="userRole">
+                                <option>Member</option>
+                                <option>Librarian</option>
+                                <option>Admin</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete User Modal -->
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteUserModalLabel">Delete User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Confirmation message -->
+                    <p>Are you sure you want to delete <strong>Jane Doe</strong>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Book Modal -->
+    <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addBookForm">
+                        <div class="form-group">
+                            <label for="bookTitle">Title</label>
+                            <input type="text" class="form-control" id="bookTitle" placeholder="Enter book title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookAuthor">Author</label>
+                            <input type="text" class="form-control" id="bookAuthor" placeholder="Enter author name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookGenre">Genre</label>
+                            <input type="text" class="form-control" id="bookGenre" placeholder="Enter genre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookID">Book ID</label>
+                            <input type="text" class="form-control" id="bookID" placeholder="Enter book ID" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="form-group">
+                            <label for="userName">Name</label>
+                            <input type="text" class="form-control" id="userName" placeholder="Enter user name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter user email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">Role</label>
+                            <select class="form-control" id="userRole" required>
+                                <option>Member</option>
+                                <option>Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userID">User ID</label>
+                            <input type="text" class="form-control" id="userID" placeholder="Enter user ID" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add User</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Calculate Fine Modal -->
+    <div class="modal fade" id="calculateFineModal" tabindex="-1" role="dialog" aria-labelledby="calculateFineModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calculateFineModalLabel">Calculate Fine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="calculateFineForm">
+                        <div class="form-group">
+                            <label for="fineAmount">Amount</label>
+                            <input type="number" class="form-control" id="fineAmount" placeholder="Enter amount" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calculate Fine</button>
+                    </form>
+                    <div id="fineResult" style="display: none;">
+                        <h5>Calculated Fine:</h5>
+                        <p><strong>Amount Due:</strong> $<span id="calculatedAmount"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Fine Modal -->
+    <div class="modal fade" id="addFineModal" tabindex="-1" role="dialog" aria-labelledby="addFineModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFineModalLabel">Add Fine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addFineForm">
+                        <div class="form-group">
+                            <label for="userID">User ID</label>
+                            <input type="text" class="form-control" id="userID" placeholder="Enter user ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fineAmount">Fine Amount</label>
+                            <input type="number" class="form-control" id="fineAmount" placeholder="Enter fine amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fineStatus">Fine Status</label>
+                            <select class="form-control" id="fineStatus" required>
+                                <option value="">Select Status</option>
+                                <option value="Paid">Paid</option>
+                                <option value="Unpaid">Unpaid</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Fine</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manage Fine Modal -->
+    <div class="modal fade" id="manageFineModal" tabindex="-1" role="dialog" aria-labelledby="manageFineModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageFineModalLabel">Manage Fine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="manageFineForm">
+                        <div class="form-group">
+                            <label for="manageFineAmount">Fine Amount</label>
+                            <input type="number" class="form-control" id="manageFineAmount" placeholder="Enter fine amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="manageFineStatus">Fine Status</label>
+                            <select class="form-control" id="manageFineStatus" required>
+                                <option value="">Select Status</option>
+                                <option value="Paid">Paid</option>
+                                <option value="Unpaid">Unpaid</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-info">Update Fine</button>
+                        <button type="button" class="btn btn-danger" id="deleteFineButton">Delete Fine</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Fine Modal -->
+    <div class="modal fade" id="viewFineModal" tabindex="-1" role="dialog" aria-labelledby="viewFineModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewFineModalLabel">View Fine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>User ID:</strong> 1</p>
+                    <p><strong>Name:</strong> Mark Smith</p>
+                    <p><strong>Amount Due:</strong> $10.00</p>
+                    <p><strong>Status:</strong> Unpaid</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Event listener for Add Fine form submission
+        document.getElementById('addFineForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var userID = document.getElementById('userID').value;
+            var fineAmount = document.getElementById('fineAmount').value;
+            var fineStatus = document.getElementById('fineStatus').value;
+
+            // Add the fine to the table
+            var fineTableBody = document.getElementById('fineTableBody');
+            var newRow = fineTableBody.insertRow();
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+
+            cell1.innerHTML = userID;
+            cell2.innerHTML = "User's Name"; // Replace with actual user name if available
+            cell3.innerHTML = '$' + fineAmount;
+            cell4.innerHTML = fineStatus;
+
+            // Actions buttons
+            cell5.innerHTML = `
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#viewFineModal"><i class="fas fa-eye"></i> View</button>
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#manageFineModal"><i class="fas fa-edit"></i> Manage</button>
+            `;
+
+            alert('Fine of $' + fineAmount + ' has been added for User ID ' + userID + ' with status ' + fineStatus + '.');
+
+            // Close the modal
+            $('#addFineModal').modal('hide');
+        });
+    </script>
+</body>
+</html>

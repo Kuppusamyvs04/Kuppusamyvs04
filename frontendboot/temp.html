@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #fff; /* Body color */
+        }
+        header {
+            background-color: #810000; /* Header color */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+       
+        }
+        footer {
+            background-color: #810000; /* Footer color */
+        }
+        .footer-text {
+            color: #fff;
+        }
+        .nav-link {
+            color: #fff !important;
+        }
+        .nav-link:hover {
+            color: #ec8f00; /* Light orange color on hover */
+            background-color: #ec8f00; /* Darker red background on hover */
+            border-radius: 4px; /* Optional: Rounded corners for hover effect */
+        }
+       /* Carousel Image */
+       .carousel-item img {
+            object-fit: cover;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+        /* Carousel Caption */
+        .carousel-caption {
+            bottom: 20%;
+        }
+        .carousel-caption h1,
+        .carousel-caption p {
+            font-weight: bolder;
+            color: black; /* White text color */
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #810000; /* Dark red background */
+            border-radius: 50%;
+        }
+        /* Button Color */
+        .btn-dark {
+            background-color: #810000;
+            border-color: #810000;
+        }
+        .btn-dark:hover {
+            background-color: #ec8f00;
+            border-color: #660000;
+        }
+         /* About Us Section */
+         #about {
+            background-color: #f5f5f5; /* Light grey background for contrast */
+        }
+        .about-content {
+            font-weight: bolder;
+            text-align: justify; /* Justify text alignment */
+        }
+        .about-carousel .carousel-inner img {
+            object-fit: cover;
+            max-height: 300px; /* Adjusted height */
+        }
+        /* Adjust the container size for images */
+        .about-carousel .carousel-item img {
+            max-height: 300px; /* Adjusted height */
+            object-fit: cover;
+            width: 100%;
+        }
+
+    /* Books Gallery Section */
+    #books {
+            background-color: #f5f5f5; /* Body color for consistency */
+        }
+        .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-back {
+    background-color: #fff;
+    color: black;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* search section */
+#search {
+            background-color: #f5f5f5; /* Body color for consistency */
+        }
+    
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="temp.js"></script>
+        <header >
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                    <h1 class="mb-0" style="color: black; font-weight: bolder;">V K's LIBRARY</h1>
+                </div>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#home" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li class="nav-item"><a href="#books" class="nav-link text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                        <li class="nav-item"><a href="#search" class="nav-link text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                        <li class="nav-item"><a href="userlogin.html" class="nav-link text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li class="nav-item"><a href="search.html" class="nav-link btn btn-warning text-dark"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <section id="home" class="py-0">
+            <div class="container-fluid p-0">
+                <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./Images/1.jpg" alt="Library Image" class="d-block w-100 h-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Images/lib2.1.jpg" alt="Library Image 2" class="d-block w-100 h-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Images/lib3" alt="Library Image 3" class="d-block w-100 h-100">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="carousel-caption d-none d-md-block text-center">
+                    <h1 class="display-4"><i class="fas fa-book-reader"></i> WELCOME TO OUR LIBRARY</h1>
+                    <p class="lead">Manage our library efficiently with our system. Borrow, return, renew books, and more.</p>
+                   
+                </div>
+            </div>
+        </section>
+    
+        <section id="about" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-dark"><i class="fas fa-info-circle"></i> About Us</h2>
+                <div class="row">
+                    <div class="col-md-6 about-content">
+                        <p>Welcome to V K Library And Books, your one-stop destination for an extensive collection of books across various genres and interests.</p>
+                        <p>From fiction to non-fiction, academic resources to leisurely reads, our collection is meticulously curated to cater to varied tastes and preferences.</p>
+                        <p>At V K Library And Books, we are committed to creating an inclusive environment that encourages exploration, discovery, and intellectual growth.</p>
+                        <p>Our staff is dedicated to providing exceptional service, assisting you in finding the perfect book, and making your visit a pleasant and enriching experience.</p>
+                        <p>Join us at V K Library And Books, where every book is a gateway to a new adventure, and every visit is a step towards personal and communal enlightenment.</p>
+                        <p>At V K Library And Books, we believe in the power of books to inspire, educate, and transform lives.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="aboutCarousel" class="carousel slide about-carousel" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./Images/about.png" alt="Book Image 1" class="d-block w-100 rounded">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./Images/about2.jfif" alt="Book Image 2" class="d-block w-100 rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+         <section id="books" class="py-5">
+        <div class="container">
+            <h2 class="text-dark"><i class="fas fa-book"></i> Books Gallery</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./Images/solar.jfif" alt="Solar Galaxy" class="card-img-top book-card">
+                            </div>
+                            <div class="flip-card-back d-flex flex-column align-items-center">
+                                <h5 class="card-title">Solar Galaxy</h5>
+                                <p class="card-text text-center">Author: Ansari<br>Genre: Non-Fiction<br>Description: An insightful look into modern history.</p>
+                                <a href="greyhound.html" class="btn btn-dark mt-3"><i class="fas fa-book-reader"></i> Borrow</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./Images/crick.jfif" alt="Cricket" class="card-img-top book-card">
+                            </div>
+                            <div class="flip-card-back d-flex flex-column align-items-center">
+                                <h5 class="card-title">Cricket</h5>
+                                <p class="card-text text-center">Author: David<br>Genre: Mystery<br>Description: A mystery that keeps you on the edge.</p>
+                                <a href="greyhound.html" class="btn btn-dark mt-3"><i class="fas fa-book-reader"></i> Borrow</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./Images/tata.jpg" alt="Tata Groups" class="card-img-top book-card">
+                            </div>
+                            <div class="flip-card-back d-flex flex-column align-items-center">
+                                <h5 class="card-title">Tata Groups</h5>
+                                <p class="card-text text-center">Author: Priya Sharma<br>Genre: Non-Fiction<br>Description: A story that keeps you on the edge.</p>
+                                <a href="greyhound.html" class="btn btn-dark mt-3"><i class="fas fa-book-reader"></i> Borrow</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./Images/grey.jfif" alt="Grey Hound" class="card-img-top book-card">
+                            </div>
+                            <div class="flip-card-back d-flex flex-column align-items-center">
+                                <h5 class="card-title">Grey Hound</h5>
+                                <p class="card-text text-center">Author: Emily Johnson<br>Genre: Adventure<br>Description: A thrilling adventure that keeps on edge of your seat.</p>
+                                <a href="greyhound.html" class="btn btn-dark mt-3"><i class="fas fa-book-reader"></i> Borrow</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="search" class="py-5">
+        <div class="container">
+            <h2 class="text-dark"><i class="fas fa-search"></i> Search Books</h2>
+            <form id="searchForm" action="greyhound.html" class="form-inline justify-content-center" onsubmit="return validateSearchForm(event)">
+                <input type="text" id="searchQuery" name="query" class="form-control mr-2" placeholder="Enter book title, author, or ISBN">
+                <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i> Search</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about" class="text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#books" class="text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                        <li><a href="#search" class="text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                        <li><a href="userlogin.html" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="search.html" class="text-white"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=Library%20Location&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Email: info@library.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <p class="text-center mb-0 footer-text">&copy; 2023 V K's Library. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+  
+
+   

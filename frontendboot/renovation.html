@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="renovation.css">
+    <style>
+        /* Root variables for colors */
+        :root {
+            --primary-color: #2e2e2e;
+            --secondary-color: #d0b67f;
+            --accent-color: #f76c6c;
+            --background-color: #f4f4f4;
+            --highlight-color: #4db6ac;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            margin-left: 20px;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--highlight-color);
+        }
+
+        .btn-dark {
+            background-color: var(--secondary-color);
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            background-color: var(--accent-color);
+        }
+
+        .btn-warning {
+            background-color: var(--highlight-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-warning:hover {
+            background-color: #3c9d9b;
+        }
+
+        .info-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-image {
+            border-radius: 10px;
+        }
+
+        .info-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .info-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-section {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--highlight-color);
+        }
+
+        .map-container {
+            margin-left: 0;
+            border-radius: 8px;
+        }
+
+        .contact-form .form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form .btn {
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .contact-form .btn:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header sticky-top">
+        <div class="header-content container">
+            <div class="logo d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="logo-img">
+                <h1>V K's LIBRARY</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="temp.html#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="temp.html#about" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="nav-item"><a href="temp.html#books" class="nav-link"><i class="fas fa-book"></i> Books Gallery</a></li>
+                    <li class="nav-item"><a href="temp.html#search" class="nav-link"><i class="fas fa-search"></i> Search Books</a></li>
+                    <li class="nav-item"><a href="index.html" class="btn btn-dark"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li class="nav-item"><a href="search.html" class="btn btn-warning"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mt-5">
+        <a href="temp.html" class="previous round btn btn-secondary"><i class="fas fa-arrow-left"></i></a>
+        <section id="new-arrivals" class="info-section">
+            <div class="info-content">
+                <div class="info-image-container flex-shrink-1">
+                    <img src="./Images/newarrive.jfif" alt="New Arrivals" class="info-image img-fluid">
+                </div>
+                <div class="info-text flex-grow-1">
+                    <h2><i class="fas fa-calendar-plus"></i> New Arrivals</h2>
+                    <p>Check out the latest books added to our collection. Discover new releases and must-reads in various genres. Stay updated with our most recent acquisitions!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="library-renovation" class="info-section">
+            <div class="info-content">
+                <div class="info-image-container flex-shrink-1">
+                    <img src="./Images/renovation.jfif" alt="Library Renovation" class="info-image img-fluid">
+                </div>
+                <div class="info-text flex-grow-1">
+                    <h2><i class="fas fa-tools"></i> Library Renovation</h2>
+                    <p>Our library has undergone a recent renovation to provide a more modern and comfortable environment for our readers. Explore our newly updated facilities and enjoy enhanced amenities and services.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="author-talks" class="info-section">
+            <div class="info-content">
+                <div class="info-image-container flex-shrink-1">
+                    <img src="./Images/4.1.jpg" alt="Author Talks" class="info-image img-fluid">
+                </div>
+                <div class="info-text flex-grow-1">
+                    <h2><i class="fas fa-user-tie"></i> Author Talks</h2>
+                    <p>Join us for engaging talks and discussions with renowned authors. Learn about their latest works, insights into the writing process, and participate in Q&A sessions. Check our schedule for upcoming events and reserve your spot!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-section">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="temp.html#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="temp.html#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="temp.html#books"><i class="fas fa-book"></i> Books Gallery</a></li>
+                        <li><a href="temp.html#search"><i class="fas fa-search"></i> Search Books</a></li>
+                        <li><a href="index.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="search.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.250681065758!2d-122.08220348468164!3d37.42302177982517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e6e1fc8b0f%3A0x36d5a9b6e0c2f8b!2sGoogleplex!5e0!3m2!1sen!2sus!4v1596624288720!5m2!1sen!2sus" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3><i class="fas fa-newspaper"></i> Latest News</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="renovation.html"><i class="fas fa-arrow-right"></i> New Arrivals: Check out our latest collection</a></li>
+                        <li><a href="renovation.html"><i class="fas fa-arrow-right"></i> Renovation: Library renovation undergoing!!!</a></li>
+                        <li><a href="renovation.html"><i class="fas fa-arrow-right"></i> Author Talks: Meet your favorite authors</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

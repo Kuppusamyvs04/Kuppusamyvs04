@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 80px; /* Space for the fixed header */
+        }
+
+        .fixed-header {
+            background-color: #810000;
+            font-weight: bolder;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background-color: #dc3545; /* Color for the back button */
+            color: white;
+            margin-top: 20px; /* Adjusted margin-top to move the button slightly down */
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed-header py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                <h1 class="mb-0">V K's LIBRARY</h1>
+            </div>
+            <h2 class="mb-0">User Dashboard</h2>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 bg-dark text-white p-4">
+                <a href="userlogin.html" class="btn back-button mb-3"><i class="fas fa-arrow-left"></i> Back</a>
+                <div class="text-center mb-4 sidebar-header">
+                    <img src="./Images/user1.png" alt="User" class="img-fluid rounded-circle" width="100">
+                    <h2 class="mt-2">User Dashboard</h2>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="#profile"><i class="fas fa-user"></i> Profile</a>
+                    <a class="nav-link text-white" href="#borrowed-books"><i class="fas fa-book"></i> Borrowed Books</a>
+                    <a class="nav-link text-white" href="#my-books"><i class="fas fa-book-reader"></i> My Books</a>
+                    <a class="nav-link text-white" href="#notifications"><i class="fas fa-bell"></i> Notifications</a>
+                </nav>
+                <button class="btn btn-danger mt-4 w-100" onclick="window.location.href='temp.html'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </aside>
+
+            <main class="col-md-9">
+                <section id="profile" class="my-4">
+                    <h2>Profile</h2>
+                    <div class="media">
+                        <img src="./Images/user1.png" alt="User Profile" class="mr-3 rounded-circle" width="100">
+                        <div class="media-body">
+                            <p><strong>Name:</strong> Kashmira Pardeshi</p>
+                            <p><strong>Email:</strong> kashmira@example.com</p>
+                            <p><strong>Member Since:</strong> January 2020</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="borrowed-books" class="my-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>Borrowed Books</h2>
+                        <button class="btn btn-primary" onclick="window.location.href='borrow.html'"><i class="fas fa-plus"></i> Borrow Book</button>
+                    </div>
+                    <table class="table table-striped table-bordered mt-3">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Due Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>The Great Gatsby</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>Fiction</td>
+                                <td>2024-08-15</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#renewModal"><i class="fas fa-sync-alt"></i> Renew</button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#returnModal"><i class="fas fa-undo-alt"></i> Return</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="my-books" class="my-4">
+                    <h2>My Books</h2>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>The Great Gatsby</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>Fiction</td>
+                                <td>Read</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="notifications" class="my-4">
+                    <h2>Notifications</h2>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Notification ID</th>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Reminder</td>
+                                <td>"The Great Gatsby" is due on 2024-08-15.</td>
+                                <td>2024-08-08</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="window.location.href='send-notification.html'"><i class="fas fa-paper-plane"></i> Send Notification</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewNotificationModal"><i class="fas fa-envelope-open"></i> View Notifications</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Renew Book Modal -->
+    <div class="modal fade" id="renewModal" tabindex="-1" role="dialog" aria-labelledby="renewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="renewModalLabel">Renew Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="renewal-form">
+                        <div class="form-group">
+                            <label for="username"><i class="fas fa-user"></i> Username</label>
+                            <input type="text" id="username" name="username" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="book-id"><i class="fas fa-book"></i> Book ID</label>
+                            <input type="text" id="book-id" name="book-id" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="renewal-date"><i class="fas fa-calendar-alt"></i> Renewal Date</label>
+                            <input type="date" id="renewal-date" name="renewal-date" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark btn-block"><i class="fas fa-sync-alt"></i> Renew Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Book Modal -->
+    <div class="modal fade" id="returnModal" tabindex="-1" role="dialog" aria-labelledby="returnModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="returnModalLabel">Return Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="return-form">
+                        <div class="form-group">
+                            <label for="return-username"><i class="fas fa-user"></i> Username</label>
+                            <input type="text" id="return-username" name="username" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="return-book-id"><i class="fas fa-book"></i> Book ID</label>
+                            <input type="text" id="return-book-id" name="book-id" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="return-date"><i class="fas fa-calendar-alt"></i> Return Date</label>
+                            <input type="date" id="return-date" name="return-date" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger btn-block"><i class="fas fa-undo-alt"></i> Return Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="successMessage">
+                    <!-- Success message will be inserted here dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Notification Modal -->
+    <div class="modal fade" id="viewNotificationModal" tabindex="-1" role="dialog" aria-labelledby="viewNotificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewNotificationModalLabel">View Notifications</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>No new notifications at the moment.</p>
+                    <!-- Add more content here if needed -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handle Renewal form submission
+            $('#renewal-form').on('submit', function (e) {
+                e.preventDefault();
+                // Perform your renewal logic here, then show the success modal
+                $('#successMessage').text('Book has been successfully renewed!');
+                $('#successModal').modal('show');
+                $('#renewModal').modal('hide');
+            });
+
+            // Handle Return form submission
+            $('#return-form').on('submit', function (e) {
+                e.preventDefault();
+                // Perform your return logic here, then show the success modal
+                $('#successMessage').text('Book has been successfully returned!');
+                $('#successModal').modal('show');
+                $('#returnModal').modal('hide');
+            });
+
+            // Handle View Notifications button click
+            $('#viewNotificationModal').on('show.bs.modal', function (e) {
+                // Customize your notification content here if needed
+            });
+        });
+    </script>
+</body>
+
+</html>

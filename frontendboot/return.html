@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Return Book</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header class="bg-primary text-white py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                <h1 class="mb-0">V K's LIBRARY</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="#home" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="nav-item"><a href="#books" class="nav-link text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                    <li class="nav-item"><a href="#search" class="nav-link text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li class="nav-item"><a href="search.html" class="nav-link btn btn-warning text-dark"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <a href="userdashboard.html" class="btn btn-dark mb-3"><i class="fas fa-arrow-left"></i> Back</a>
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="return-book bg-white p-4 rounded shadow" style="width: 100%; max-width: 500px;">
+            <h2 class="text-dark mb-4 text-center">Return Book</h2>
+            <form id="return-form" method="post" action="returns.html">
+                <div class="form-group">
+                    <label for="book-id"><i class="fas fa-barcode"></i> Book ID</label>
+                    <input type="text" id="book-id" name="book-id" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="return-date"><i class="fas fa-calendar-day"></i> Return Date</label>
+                    <input type="date" id="return-date" name="return-date" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block"><i class="fas fa-undo"></i> Return Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <footer class="bg-primary text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about" class="text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#books" class="text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                        <li><a href="#search" class="text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                        <li><a href="index.html" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="search.html" class="text-white"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=Library%20Location&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Email: info@library.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <p class="text-center mb-0">&copy; 2023 V K's Library. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

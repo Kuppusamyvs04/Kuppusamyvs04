@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Search Results</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+
+<body>
+    <header class="bg-primary text-white py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./Images/logo.jfif" alt="Library Logo" class="rounded-circle mr-3" style="width: 80px; height: 80px;">
+                <h1 class="mb-0">V K's LIBRARY</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="temp.html" class="nav-link text-white"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="nav-item"><a href="#books" class="nav-link text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                    <li class="nav-item"><a href="#search" class="nav-link text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                    <li class="nav-item"><a href="userlogin.html" class="nav-link text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li class="nav-item"><a href="search.html" class="nav-link btn btn-warning text-dark"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <a href="temp.html" class="btn btn-dark mb-3"><i class="fas fa-arrow-left"></i> Back</a>
+        <section id="search-results">
+            <h2 class="text-dark">Search Results</h2>
+            <div id="searchResultsContainer" class="d-flex flex-column gap-3">
+                <!-- Search results will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="temp.html" class="text-white"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about" class="text-white"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#books" class="text-white"><i class="fas fa-book"></i> Books Gallery</a></li>
+                        <li><a href="#search" class="text-white"><i class="fas fa-search"></i> Search Books</a></li>
+                        <li><a href="userlogin.html" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="search.html" class="text-white"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=Library%20Location&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg mr-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-lg"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Email: info@library.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <p class="text-center mb-0">&copy; 2023 V K's Library. All Rights Reserved.</p>
+        </div>
+    
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to simulate fetching search results
+        function fetchSearchResults(query) {
+            // Simulated book data
+            const books = [
+                {
+                    title: 'Solar Galaxy',
+                    author: 'John Smith',
+                    publisher: 'Space Books',
+                    year: 2022,
+                    isbn: '789-4561237890',
+                    description: 'Explore the wonders of the solar system with this comprehensive guide. From the sun to the outer planets, learn about the celestial bodies that make up our galaxy.',
+                    image: './Images/solar.jfif'
+                },
+                {
+                    title: 'Greyhound',
+                    author: 'C.S. Lewis',
+                    publisher: 'HarperCollins',
+                    year: 2005,
+                    isbn: '978-0060652920',
+                    description: 'A gripping tale of survival and bravery during World War II. Follow the journey of the USS Greyhound as it battles enemy submarines in the Atlantic.',
+                    image: './Images/grey.jfif'
+                },
+                {
+                    title: 'Wings of Fire',
+                    author: 'APJ Abdul Kalam',
+                    publisher: 'Universities Press',
+                    year: 2016,
+                    isbn: '978-8173711462',
+                    description: 'An inspiring autobiography of one of India’s most celebrated scientists and former President. Discover the journey of Dr. Kalam from a small village to the pinnacle of success.',
+                    image: './Images/wings.jfif'
+                },
+                // Add more books here
+                {
+                    title: 'Cricket Masterclass',
+                    author: 'Sourav Ganguly',
+                    publisher: 'Sports Publications',
+                    year: 2021,
+                    isbn: '978-1234567890',
+                    description: 'A comprehensive guide to mastering the art of cricket from one of India\'s cricket legends. Perfect for players and fans alike.',
+                    image: './Images/crick.jfif'
+                },
+                {
+                    title: 'Tata Groups',
+                    author: 'Ratan Tata',
+                    publisher: 'Business Insights',
+                    year: 2019,
+                    isbn: '978-0987654321',
+                    description: 'An insightful book on the history and impact of the Tata Group, written by its prominent leader. A must-read for those interested in business and leadership.',
+                    image: './Images/tata.jpg'
+                },
+                {
+                    title: 'The Great Indian Novel',
+                    author: 'Shashi Tharoor',
+                    publisher: 'Penguin Books',
+                    year: 2017,
+                    isbn: '978-0143417690',
+                    description: 'A satirical retelling of the Indian epic Mahabharata set against the backdrop of the Indian independence movement. Shashi Tharoor brings history and mythology together in a compelling narrative.',
+                    image: './Images/great.png'
+                },
+                {
+                    title: 'Digital Fortress',
+                    author: 'Dan Brown',
+                    publisher: 'Bantam Books',
+                    year: 2009,
+                    isbn: '978-0552161230',
+                    description: 'A thrilling novel about a codebreaker who uncovers a conspiracy involving the NSA. Dan Brown’s gripping storytelling will keep you on the edge of your seat.',
+                    image: './Images/digi.jfif'
+                },
+                {
+                    title: 'The Silent Patient',
+                    author: 'Alex Michaelides',
+                    publisher: 'Celadon Books',
+                    year: 2019,
+                    isbn: '978-1250301697',
+                    description: 'A psychological thriller about a woman who stops speaking after being accused of her husband’s murder. A gripping mystery that explores the depths of the human mind.',
+                    image: './Images/silent.jfif'
+                }
+            ];
+
+            const container = document.getElementById('searchResultsContainer');
+            container.innerHTML = ''; // Clear previous results
+
+            // Filter and display books based on the query
+            books.forEach(book => {
+                if (book.title.toLowerCase().includes(query.toLowerCase())) {
+                    container.innerHTML += `
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <img src="${book.image}" class="img-fluid rounded mr-3" alt="${book.title}" style="width: 150px;">
+                                    <div>
+                                        <h5 class="card-title">${book.title}</h5>
+                                        <p class="card-text"><strong>Author:</strong> ${book.author}</p>
+                                        <p class="card-text"><strong>Publisher:</strong> ${book.publisher}</p>
+                                        <p class="card-text"><strong>Year:</strong> ${book.year}</p>
+                                        <p class="card-text"><strong>ISBN:</strong> ${book.isbn}</p>
+                                        <p class="card-text">${book.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Example usage
+        fetchSearchResults(''); // Fetch all books as the search query is empty
+    </script>
+</body>
+
+</html>
